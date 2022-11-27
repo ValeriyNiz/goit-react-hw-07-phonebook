@@ -1,6 +1,6 @@
 import styles from './App.module.css';
-import ContactList from './ContactList/ContactList.jsx';
-import ContactForm from './ContactForm/ContactForm.jsx';
+import ContactList from '../ContactList/ContactList.jsx';
+import ContactForm from '../ContactForm/ContactForm.jsx';
 
 export default function App() {
   return (

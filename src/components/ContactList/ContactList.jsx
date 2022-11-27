@@ -1,12 +1,10 @@
+import ContactItem from 'components/ContactItem/ContactItem.jsx';
 import { useState, useMemo } from 'react';
-import { useGetContactsQuery } from '../../Redux/contactsReducer.js';
-import { useDeleteContactMutation } from '../../Redux/contactsReducer.js';
+import { useGetContactsQuery } from '../../redux/contactsApi.js';
 import Filter from '../Filter/Filter';
-import styles from './ContactList.module.css';
 
 export default function ContactList() {
   const { isLoading } = useGetContactsQuery();
-  const [deleteContact] = useDeleteContactMutation();
   const [filter, setFilter] = useState('');
   const { data: contacts } = useGetContactsQuery();
 
@@ -26,21 +24,7 @@ export default function ContactList() {
           <b>Loading...</b>
         ) : (
           filterContacts.map(contact => {
-            return (
-              <li key={contact.id} className={styles.contactList_item}>
-                <p className={styles.item_text}>
-                  {contact.name}:{' '}
-                  <span className={styles.item_span}>{contact.number}</span>
-                </p>
-                <button
-                  type="button"
-                  className={styles.item_btn}
-                  onClick={() => deleteContact(contact.id)}
-                >
-                  Delete
-                </button>
-              </li>
-            );
+            return <ContactItem key={contact.id} contact={contact} />;
           })
         )}
       </ul>

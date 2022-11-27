@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { useGetContactsQuery } from '../../Redux/contactsReducer.js';
-import { useAddContactMutation } from '../../Redux/contactsReducer.js';
+import {
+  useGetContactsQuery,
+  useAddContactMutation,
+} from '../../redux/contactsApi.js';
 import styles from './ContactForm.module.css';
 
 export default function ContactForm() {
