@@ -16,7 +16,7 @@ const ContactItem = ({ contact }) => {
         className={styles.item_btn}
         onClick={() => deleteContact(contact.id)}
       >
-        Delete
+        Deletee
       </button>
     </li>
   );
